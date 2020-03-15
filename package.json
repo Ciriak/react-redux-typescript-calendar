@@ -1,35 +1,51 @@
 {
   "name": "zelty-calendar",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "bootstrap": "^4.4.1",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0",
-    "react-scripts": "3.4.0"
-  },
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server",
+    "build": "webpack --mode=production",
+    "lint": "tslint ./src/**/*.ts"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ciriak/zelty-calendar.git"
+  },
+  "author": "Cyriaque DELAUNAy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ciriak/zelty-calendar/issues"
+  },
+  "homepage": "https://github.com/Ciriak/zelty-calendar#readme",
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "bootstrap-vue": "^2.7.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "file-loader": "^5.1.0",
+    "husky": "^4.2.3",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.8.3",
+    "vue": "^2.6.11",
+    "vue-class-component": "^7.2.3",
+    "vue-loader": "^15.9.0",
+    "vue-router": "^3.1.6",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.1.3",
+    "webpack": "^4.42.0"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
   }
 }
