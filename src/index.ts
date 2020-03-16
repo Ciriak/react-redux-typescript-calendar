@@ -1,6 +1,7 @@
 import { BootstrapVue } from "bootstrap-vue";
 import Vue from "vue";
 import VueRouter from "vue-router";
+import VueMoment from "vue-moment";
 import Vuex from "vuex";
 import App from "./App.vue";
 import Week from "./components/week/Week.vue";
@@ -20,8 +21,13 @@ const router = new VueRouter({
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(Vuex);
-// must be called after vue.use
+Vue.use(VueMoment);
 
+/**
+ * Bootstrap import
+ */
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 // tslint:disable-next-line: no-unused-expression
 new Vue({
     router,
