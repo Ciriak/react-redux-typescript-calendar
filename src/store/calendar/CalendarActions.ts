@@ -1,7 +1,9 @@
 
 import { calendarActionTypes, SET_DATE } from './types'
-
-// TypeScript infers that this function is returning SendMessageAction
+/**
+ * Set the current app date view
+ * @param date 
+ */
 export function setDate(date: Date): calendarActionTypes {
     return {
         type: SET_DATE,
