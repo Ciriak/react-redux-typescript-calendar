@@ -1,35 +1,50 @@
 import React from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment'
-import events from '../../events'
 import { useDispatch, useSelector } from 'react-redux';
-import { setDate } from '../../store/calendar/CalendarActions';
+import { setDate, setCalendarEvent } from '../../store/calendar/CalendarActions';
 import { RootState } from '../../store';
 import "./calendar.scss"
+import IEvent from '../../interfaces/event.interface';
 // import * as dates from '../../utils/dates'
 
 const localizer = momentLocalizer(moment);
 
 function RCalendar() {
   const selectDate = (state: RootState) => state.calendar.date;
+  const selectCurrentCalendaruser = (state: RootState) => state.calendar.currentUser;
   const date = useSelector(selectDate);
+  const currentUser = useSelector(selectCurrentCalendaruser);
   const dispatch = useDispatch();
 
   const handleNavigate = (newDate: Date) => {
     dispatch(setDate(newDate));
   }
 
+  const handleEventSelect = (event: IEvent) => {
+    dispatch(setCalendarEvent(event));
+  }
+
+  const handleSelectSlot = (e: any) => {
+    console.log(e);
+  }
+
+
+
   return (
     <div className="calendar">
       <Calendar
         date={date}
-        events={events}
+        events={currentUser.events}
         step={60}
+        selectable={true}
         defaultView="week"
         views={['month', 'week', 'day']}
         // defaultDate={new Date()}
         localizer={localizer}
         onNavigate={handleNavigate}
+        onSelectEvent={handleEventSelect}
+        onSelectSlot={handleSelectSlot}
       />
     </div>
   );

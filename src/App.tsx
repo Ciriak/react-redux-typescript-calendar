@@ -6,12 +6,14 @@ import RCalendar from "./components/calendar/Calendar";
 import Header from './components/header/Header';
 import Overview from './components/overview/Overview';
 import "./app.scss";
+import CalendarEvent from './components/calendar-event/CalendarEvent';
 
 function App() {
   // const date = useSelector<RootState>(state => state.calendar.date);
 
   return (
     <div className="app">
+      <CalendarEvent />
       <Header />
       <div className="main-frame">
         <Overview />

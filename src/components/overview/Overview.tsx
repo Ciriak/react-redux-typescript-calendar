@@ -1,7 +1,33 @@
 import React from 'react';
 import { Card, Button, Dropdown } from "react-bootstrap";
 import "./overview.scss"
+import { RootState } from '../../store';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { setCalendarUser } from '../../store/calendar/CalendarActions';
+import IUser from '../../interfaces/user.interface';
 function Overview() {
+
+    const selectUsers = (state: RootState) => state.calendar.usersList;
+    const selectCurrentCalendarUser = (state: RootState) => state.calendar.currentUser;
+    const usersList = useSelector(selectUsers);
+    const calendarUser = useSelector(selectCurrentCalendarUser);
+    const dispatch = useDispatch();
+    const usersComponents = [];
+
+    for (const user of usersList) {
+        usersComponents.push(
+            <Dropdown.Item key={`user-${user.name}`} href="#" onClick={() => {
+                handleUserChange(user)
+            }}>
+                <img src={user.avatarUrl} className="person-avatar" alt={user.name} /> {user.name}
+            </Dropdown.Item>)
+    }
+
+    function handleUserChange(user: IUser) {
+        dispatch(setCalendarUser(user));
+    }
+
     return (
         <div className="overview">
             <Card>
@@ -9,19 +35,11 @@ function Overview() {
                     <Dropdown>
                         <strong>Viewing the calendar of </strong>
                         <Dropdown.Toggle variant="light" id="dropdown-basic">
-                            <img src="http://lorempixel.com/48/48/abstract/" className="person-avatar" alt="John doe" /> John Doe
+                            <img src={calendarUser.avatarUrl} className="person-avatar" alt={calendarUser.name} /> {calendarUser.name}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
-                            <Dropdown.Item href="#">
-                                <img src="https://i.imgur.com/sLSlIND.png" className="person-avatar" alt="Jc" /> Jean claude
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#">
-                                <img src="https://i.imgur.com/38KuJvQ.png" className="person-avatar" alt="Gabe" /> Gabe Newell
-                            </Dropdown.Item>
-                            <Dropdown.Item href="#">
-                                <img src="https://i.imgur.com/7NyaOjK.png" className="person-avatar" alt="corona" /> Covid-19
-                            </Dropdown.Item>
+                            {usersComponents}
                         </Dropdown.Menu>
 
                     </Dropdown>

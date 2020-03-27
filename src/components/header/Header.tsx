@@ -17,7 +17,7 @@ function Header() {
                 <Nav className="justify-content-end">
                     <Dropdown >
                         <Dropdown.Toggle variant="dark" id="dropdown-basic">
-                            <img src="http://lorempixel.com/48/48/abstract/" className="header-avatar" alt="John doe" /> Welcome John Doe
+                            <img src="http://picsum.photos/48/48/" className="header-avatar" alt="John doe" /> Welcome John Doe
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
