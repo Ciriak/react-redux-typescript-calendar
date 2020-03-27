@@ -5,12 +5,14 @@ import IEvent from "../../interfaces/event.interface";
 export const SET_DATE = 'SET_DATE'
 export const SET_CALENDAR_USER = 'SET_CALENDAR_USER'
 export const SET_CALENDAR_EVENT = 'SET_CALENDAR_EVENT'
+export const CLOSE_EVENT_CREATOR = 'CLOSE_EVENT_CREATOR'
 
 export interface ICalendarState {
     date: Date;
     currentUser: IUser;
     usersList: IUser[];
-    currentEvent?: IEvent;
+    currentEvent: IEvent;
+    showNewEventCreator: boolean;
 }
 
 interface SetDateAction {
@@ -23,7 +25,7 @@ interface SetDateAction {
 interface SetCalendarEventAction {
     type: typeof SET_CALENDAR_EVENT
     payload: {
-        event?: IEvent
+        event: IEvent
     }
 }
 
@@ -34,4 +36,8 @@ interface SetCalendarUserAction {
     }
 }
 
-export type calendarActionTypes = SetDateAction | SetCalendarUserAction | SetCalendarEventAction;
+interface CloseEventCreator {
+    type: typeof CLOSE_EVENT_CREATOR
+}
+
+export type calendarActionTypes = SetDateAction | SetCalendarUserAction | SetCalendarEventAction | CloseEventCreator;
