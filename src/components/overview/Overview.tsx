@@ -1,12 +1,10 @@
 import React from 'react';
-import { Card, Button, Dropdown } from "react-bootstrap";
+import { Card, Dropdown } from "react-bootstrap";
 import "./overview.scss"
 import { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
-import Calendar from 'rc-calendar';
 import { setCalendarUser, setDate } from '../../store/calendar/CalendarActions';
 import IUser from '../../interfaces/user.interface';
-import moment from 'moment';
 import ReactDatePicker from 'react-datepicker';
 function Overview() {
 

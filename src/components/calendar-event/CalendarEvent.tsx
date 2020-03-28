@@ -28,10 +28,8 @@ function CalendarEvent() {
         dispatch(setCalendarEvent({ ...currentEvent, [propName]: value }))
     }
 
-
     return (
         <>
-
             <Modal show={showCreator} onHide={handleClose}>
                 <Modal.Header closeButton>
                     <Modal.Title>{currentEvent.title}</Modal.Title>

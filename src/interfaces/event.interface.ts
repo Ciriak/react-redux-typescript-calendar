@@ -2,8 +2,8 @@ import { guid } from "../utils";
 
 export const defaultEvent: IEvent = {
     id: guid(),
-    desc: "Lorem ipsum",
-    title: "Lorem ipsum",
+    desc: "Describe your new event",
+    title: "My new event",
     start: new Date(),
     end: new Date(),
 }

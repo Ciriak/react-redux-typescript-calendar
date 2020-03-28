@@ -28,6 +28,9 @@ export function setCalendarUser(user: IUser): calendarActionTypes {
     }
 }
 
+/**
+ * Close the event creation modal
+ */
 export function closeEventCreator(): calendarActionTypes {
     return {
         type: CLOSE_EVENT_CREATOR,
@@ -35,7 +38,7 @@ export function closeEventCreator(): calendarActionTypes {
 }
 
 /**
- * Set the current app date view
+ * Set the event that is beeing modified
  * @param date 
  */
 export function setCalendarEvent(event: IEvent): calendarActionTypes {
@@ -48,8 +51,8 @@ export function setCalendarEvent(event: IEvent): calendarActionTypes {
 }
 
 /**
- * Set the current app date view
- * @param date 
+ * Update an event by it's ID, if it doesn't exist it will be created
+ * @param event 
  */
 export function updateEvent(event: IEvent): calendarActionTypes {
     return {

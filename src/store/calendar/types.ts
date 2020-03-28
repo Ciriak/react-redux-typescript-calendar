@@ -1,11 +1,25 @@
 import IUser from "../../interfaces/user.interface";
 import IEvent from "../../interfaces/event.interface";
 
-
+/**
+ * The the current view date
+ */
 export const SET_DATE = 'SET_DATE'
+/**
+ * Set the current calendar user
+ */
 export const SET_CALENDAR_USER = 'SET_CALENDAR_USER'
+/**
+ * Set the current calendar event that is beeing managed
+ */
 export const SET_CALENDAR_EVENT = 'SET_CALENDAR_EVENT'
+/**
+ * Close the event creation modal
+ */
 export const CLOSE_EVENT_CREATOR = 'CLOSE_EVENT_CREATOR'
+/**
+ * Update an event by it's id
+ */
 export const UPDATE_EVENT = 'UPDATE_EVENT'
 
 export interface ICalendarState {
