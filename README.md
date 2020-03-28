@@ -9,7 +9,7 @@
 
 ## Live demo
 
-> https://react-redux-ts-calendar.herokuapp.com/
+> https://react-redux-ts-calendar.herokuapp.com
 
 ## Available Scripts
 
@@ -34,4 +34,6 @@ Lint the code using Prettier
 
 ## Notes
 
+-   The default data are randomly generated with [Faker](https://www.npmjs.com/package/faker)
+-   Nothing is saved, you reload, it's lost
 -   Code style is forced with prettier by a [pre-commit hook](https://www.npmjs.com/package/husky)
