@@ -7,11 +7,15 @@
 
 <!-- [![Maintainability](https://api.codeclimate.com/v1/badges/dda2c14e5084ccfa29d2/maintainability)](https://codeclimate.com/github/Ciriak/react-redux-typescript-calendar/maintainability) -->
 
+## Live demo
+
+> https://react-redux-ts-calendar.herokuapp.com/
+
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
