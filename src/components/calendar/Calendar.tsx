@@ -5,7 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setDate, setCalendarEvent } from '../../store/calendar/CalendarActions';
 import { RootState } from '../../store';
 import "./calendar.scss"
-import IEvent from '../../interfaces/event.interface';
+import IEvent, { defaultEvent } from '../../interfaces/event.interface';
+import { guid } from '../../utils';
 // import * as dates from '../../utils/dates'
 
 const localizer = momentLocalizer(moment);
@@ -26,7 +27,11 @@ function RCalendar() {
   }
 
   const handleSelectSlot = (e: any) => {
-    console.log(e);
+    const newEvent = defaultEvent;
+    newEvent.id = guid();
+    newEvent.start = e.start;
+    newEvent.end = e.end;
+    dispatch(setCalendarEvent(newEvent));
   }
 
 

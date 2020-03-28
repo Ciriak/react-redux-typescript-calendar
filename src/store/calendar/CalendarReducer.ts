@@ -51,6 +51,10 @@ export function calendarReducer(
             if (eIndex > -1) {
                 updateEvents[eIndex] = action.payload.event;
             }
+            // add event if it doesn't exist yet
+            else {
+                updateEvents.push(action.payload.event)
+            }
             return {
                 ...state,
                 currentUser: {
