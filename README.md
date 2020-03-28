@@ -24,6 +24,10 @@ You will also see any lint errors in the console.
 Builds the app for production to the `build` folder.<br />
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
+### `npm run lint`
+
+Lint the code using Prettier
+
 ## Notes
 
 -   Code style is forced with prettier by a [pre-commit hook](https://www.npmjs.com/package/husky)
