@@ -3,7 +3,7 @@
 ## A calendar created with React, Redux and Typescript
 
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![reacttsredux](https://circleci.com/gh/Ciriak/react-redux-typescript-calendar.svg?style=svg)](https://codeclimate.com/github/Ciriak/react-redux-typescript-calendar/builds)
+[![reacttsredux](https://circleci.com/gh/Ciriak/react-redux-typescript-calendar.svg?style=svg)](https://circleci.com/gh/Ciriak/react-redux-typescript-calendar)
 
 <!-- [![Maintainability](https://api.codeclimate.com/v1/badges/dda2c14e5084ccfa29d2/maintainability)](https://codeclimate.com/github/Ciriak/react-redux-typescript-calendar/maintainability) -->
 
