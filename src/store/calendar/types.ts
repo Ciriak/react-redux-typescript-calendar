@@ -22,6 +22,11 @@ export const CLOSE_EVENT_CREATOR = 'CLOSE_EVENT_CREATOR'
  */
 export const UPDATE_EVENT = 'UPDATE_EVENT'
 
+/**
+ * Update an event by it's id
+ */
+export const DELETE_EVENT = 'DELETE_EVENT'
+
 export interface ICalendarState {
     date: Date;
     currentUser: IUser;
@@ -58,8 +63,15 @@ interface UpdateEventAction {
     }
 }
 
+interface DeleteEvent {
+    type: typeof DELETE_EVENT
+    payload: {
+        event: IEvent
+    }
+}
+
 interface CloseEventCreator {
     type: typeof CLOSE_EVENT_CREATOR
 }
 
-export type calendarActionTypes = SetDateAction | SetCalendarUserAction | SetCalendarEventAction | CloseEventCreator | UpdateEventAction;
+export type calendarActionTypes = SetDateAction | SetCalendarUserAction | SetCalendarEventAction | CloseEventCreator | UpdateEventAction | DeleteEvent;

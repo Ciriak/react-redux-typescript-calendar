@@ -2,7 +2,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import React from 'react';
 import { RootState } from "../../store";
 import { useSelector, useDispatch } from "react-redux";
-import { closeEventCreator, setCalendarEvent, updateEvent } from "../../store/calendar/CalendarActions";
+import { closeEventCreator, setCalendarEvent, updateEvent, deleteEvent } from "../../store/calendar/CalendarActions";
 import ReactDatePicker from "react-datepicker";
 function CalendarEvent() {
 
@@ -26,6 +26,26 @@ function CalendarEvent() {
 
     const handleValUpdate = (propName: string, value: any) => {
         dispatch(setCalendarEvent({ ...currentEvent, [propName]: value }))
+    }
+
+    const handleDeleteEvent = () => {
+        // eslint-disable-next-line no-restricted-globals
+        if (confirm("Are you sure ?")) {
+            dispatch(closeEventCreator());
+            dispatch(deleteEvent(currentEvent));
+        }
+    }
+
+    /**
+     * Display the delete button if not new event
+     */
+    const deleteButtonRender = () => {
+        if (currentEvent.isNew) {
+            return ("");
+        }
+        return (<div className="row m-1 float-right">
+            <div className="btn btn-sm btn-danger" onClick={handleDeleteEvent}>X Delete event</div>
+        </div>)
     }
 
     return (
@@ -78,8 +98,7 @@ function CalendarEvent() {
 
                         </div>
 
-
-
+                        {deleteButtonRender()}
                     </Form>
 
                 </Modal.Body>

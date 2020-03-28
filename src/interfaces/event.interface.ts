@@ -6,6 +6,7 @@ export const defaultEvent: IEvent = {
     title: "My new event",
     start: new Date(),
     end: new Date(),
+    isNew: true
 }
 
 export default interface IEvent {
@@ -13,5 +14,6 @@ export default interface IEvent {
     title: string;
     start: Date,
     end: Date,
-    desc: string
+    desc: string,
+    isNew?: boolean
 }
