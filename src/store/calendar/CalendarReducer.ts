@@ -1,7 +1,8 @@
 
 import {
-    ICalendarState, calendarActionTypes, SET_DATE, SET_CALENDAR_USER, SET_CALENDAR_EVENT, CLOSE_EVENT_CREATOR
+    ICalendarState, calendarActionTypes, SET_DATE, SET_CALENDAR_USER, SET_CALENDAR_EVENT, CLOSE_EVENT_CREATOR, UPDATE_EVENT
 } from './types'
+import { findIndex } from "lodash"
 
 import { johnDoe, gaben, corona, jeanClaude } from "../../data/users";
 import { defaultEvent } from '../../interfaces/event.interface';
@@ -41,6 +42,21 @@ export function calendarReducer(
             return {
                 ...state,
                 showNewEventCreator: false
+            }
+
+        case UPDATE_EVENT:
+            // only update if the event is found
+            const eIndex = findIndex(state.currentUser.events, { id: action.payload.event.id });
+            let updateEvents = state.currentUser.events;
+            if (eIndex > -1) {
+                updateEvents[eIndex] = action.payload.event;
+            }
+            return {
+                ...state,
+                currentUser: {
+                    ...state.currentUser,
+                    events: updateEvents
+                }
             }
 
 

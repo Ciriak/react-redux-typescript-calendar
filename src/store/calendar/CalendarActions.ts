@@ -1,7 +1,7 @@
 
-import { calendarActionTypes, SET_DATE, SET_CALENDAR_USER, SET_CALENDAR_EVENT, CLOSE_EVENT_CREATOR } from './types'
+import { calendarActionTypes, SET_DATE, SET_CALENDAR_USER, SET_CALENDAR_EVENT, CLOSE_EVENT_CREATOR, UPDATE_EVENT } from './types'
 import IUser from '../../interfaces/user.interface'
-import IEvent, { defaultEvent } from '../../interfaces/event.interface'
+import IEvent from '../../interfaces/event.interface'
 /**
  * Set the current app date view
  * @param date 
@@ -45,6 +45,17 @@ export function setCalendarEvent(event: IEvent): calendarActionTypes {
             event
         }
     }
+}
 
-
+/**
+ * Set the current app date view
+ * @param date 
+ */
+export function updateEvent(event: IEvent): calendarActionTypes {
+    return {
+        type: UPDATE_EVENT,
+        payload: {
+            event
+        }
+    }
 }

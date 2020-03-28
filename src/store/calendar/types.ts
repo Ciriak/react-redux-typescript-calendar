@@ -6,6 +6,7 @@ export const SET_DATE = 'SET_DATE'
 export const SET_CALENDAR_USER = 'SET_CALENDAR_USER'
 export const SET_CALENDAR_EVENT = 'SET_CALENDAR_EVENT'
 export const CLOSE_EVENT_CREATOR = 'CLOSE_EVENT_CREATOR'
+export const UPDATE_EVENT = 'UPDATE_EVENT'
 
 export interface ICalendarState {
     date: Date;
@@ -36,8 +37,15 @@ interface SetCalendarUserAction {
     }
 }
 
+interface UpdateEventAction {
+    type: typeof UPDATE_EVENT
+    payload: {
+        event: IEvent
+    }
+}
+
 interface CloseEventCreator {
     type: typeof CLOSE_EVENT_CREATOR
 }
 
-export type calendarActionTypes = SetDateAction | SetCalendarUserAction | SetCalendarEventAction | CloseEventCreator;
+export type calendarActionTypes = SetDateAction | SetCalendarUserAction | SetCalendarEventAction | CloseEventCreator | UpdateEventAction;
