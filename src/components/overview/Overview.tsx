@@ -3,17 +3,25 @@ import { Card, Button, Dropdown } from "react-bootstrap";
 import "./overview.scss"
 import { RootState } from '../../store';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { setCalendarUser } from '../../store/calendar/CalendarActions';
+import Calendar from 'rc-calendar';
+import { setCalendarUser, setDate } from '../../store/calendar/CalendarActions';
 import IUser from '../../interfaces/user.interface';
+import moment from 'moment';
+import ReactDatePicker from 'react-datepicker';
 function Overview() {
 
     const selectUsers = (state: RootState) => state.calendar.usersList;
     const selectCurrentCalendarUser = (state: RootState) => state.calendar.currentUser;
+    const selectDate = (state: RootState) => state.calendar.date;
+    const date = useSelector(selectDate);
     const usersList = useSelector(selectUsers);
     const calendarUser = useSelector(selectCurrentCalendarUser);
     const dispatch = useDispatch();
     const usersComponents = [];
+
+    const handleNavigate = (newDate: Date) => {
+        dispatch(setDate(newDate));
+    }
 
     for (const user of usersList) {
         usersComponents.push(
@@ -28,6 +36,15 @@ function Overview() {
         dispatch(setCalendarUser(user));
     }
 
+    function getCurrentUserLabel() {
+        let label = calendarUser.name;
+        if (calendarUser.name === "John Doe") /* <= lol yeah */ {
+            label += " (you)";
+        }
+
+        return label;
+    }
+
     return (
         <div className="overview">
             <Card>
@@ -35,7 +52,7 @@ function Overview() {
                     <Dropdown>
                         <strong>Viewing the calendar of </strong>
                         <Dropdown.Toggle variant="light" id="dropdown-basic">
-                            <img src={calendarUser.avatarUrl} className="person-avatar" alt={calendarUser.name} /> {calendarUser.name}
+                            <img src={calendarUser.avatarUrl} className="person-avatar" alt={calendarUser.name} /> {getCurrentUserLabel()}
                         </Dropdown.Toggle>
 
                         <Dropdown.Menu>
@@ -46,11 +63,11 @@ function Overview() {
 
                 </Card.Header>
                 <Card.Body>
-                    <Card.Title>Mini calendar here</Card.Title>
-                    <Card.Text>
-                        ... coming soon
-                    </Card.Text>
-                    <Button variant="primary">(probably never))</Button>
+                    <ReactDatePicker
+                        selected={date}
+                        onChange={(date: Date) => handleNavigate(date)}
+                        inline
+                    />
                 </Card.Body>
             </Card>
         </div>

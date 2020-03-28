@@ -64,8 +64,8 @@ export const gaben: IUser = {
     events: [
         {
             id: guid(),
-            desc: "Stay confined because what else do i have to do anyway ?",
-            title: "Stay confined",
+            desc: "Eh",
+            title: "Working on Half Life 3",
             start: new Date("March 20, 2020 12:00:00"),
             end: new Date("April 15, 2020 12:00:00")
         },

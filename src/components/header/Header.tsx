@@ -6,12 +6,13 @@ function Header() {
         <Navbar bg="dark">
             <Navbar.Brand>
                 <img
-                    src="/logo192.png"
+                    src="/icon.png"
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
                     alt="Calendar logo"
                 />
+                <span className="ml-1 text-light">ULTIMATE CALENDAR</span>
             </Navbar.Brand>
             <Navbar.Collapse className="justify-content-end align-items-center">
                 <Nav className="justify-content-end">
